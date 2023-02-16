@@ -19,8 +19,8 @@ $b = $i.OnlinePstnGatewayList
 $CustID = $GatewayFQDN.SubString(0,9) + ".csv"
 $FilePath = "$env:APPDATA\$CustID"
 
-# Get the results of the search and export ONLY the LineURI
-$results1 = Get-CsOnlineUser | Where-Object { $_.LineURI } | Select-Object LineUri
+# Get the results of the search and export ONLY the LineURI and TeamsUpgradeEffectiveMode 
+$results1 = Get-CsOnlineUser | Where-Object { $_.LineURI } | Select-Object LineUri, TeamsUpgradeEffectiveMode 
 
 #Export the results of the search to a CSV file, or inform the user if it fails
 try {
